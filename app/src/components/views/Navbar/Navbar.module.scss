@@ -1,0 +1,64 @@
+@import "../../../styles/settings.scss";
+
+.container {
+  height: 60px;
+
+  .wrapper {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+
+
+    .left {
+      flex: 1; 
+      display: flex;
+      align-items: center;
+
+      .language {
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .container_search {
+        border : 0.5px solid lightgray;
+        display: flex; 
+        align-items: center;
+        margin-left: 25px;
+        padding: 5px;
+
+        .input_search{
+          border: none;
+        }
+
+        .icon_search{
+          color: grey;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .center {
+      flex: 1; 
+      text-align: center;
+      
+
+      .logo {
+        font-weight: bold;
+      }
+    }
+
+    .right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      .menu_item {
+        font-size: 14px;
+        cursor: pointer;
+        margin-left: 25px;
+      }
+    }
+  }
+}
