@@ -39,9 +39,8 @@ const Slider = () => {
         {sliderItems.map((item) => (
           <Slide 
             key={item.id} 
-            img={item.img} 
-            title={item.title} 
-            desc={item.desc}/>
+            item={item}
+            />
         ))}
       </Wrapper>
 
