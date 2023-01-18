@@ -1,52 +1,51 @@
-import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons'
-import styles from './Slider.module.scss'
+import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons';
+import styled from 'styled-components';
+import styles from './Slider.module.scss';
+import Slide from '../../features/Slide/Slide';
+import { sliderItems } from '../../../state/data';
+import { useState } from "react";
+
+// styled components
+
+const Wrapper = styled.div`
+  height: 100%;
+  display: flex;
+  transition: all 1.5s ease;
+  transform: translateX(${ (props) => props.slideIndex * -100}vw);
+`
+
+// slider component
 
 const Slider = () => {
+
+  const [slideIndex, setSlideIndex] = useState(0)
+  
+  const handleClick = (direction) => { 
+    if(direction === "left"){
+      setSlideIndex(slideIndex > 0 ? slideIndex -1 : 2)
+    } else {
+      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0)
+    }
+  }
+
   return (
     <div className={styles.container}>
 
-      <div className={styles.arrow_left}>
+      <div className={styles.arrow_left} onClick={() => handleClick("left")}>
         <ArrowLeftOutlined />
       </div>
 
-      <div className={styles.wrapper}>
-        
-        <div className={styles.slide}>
-          <div className={styles.container_img}>
-            <img className={styles.img} src="https://www.ridestore.com/images/H1192_01_HiMqWLf.jpg" alt="sale"></img>
-          </div>
-          <div className={styles.container_info}>
-            <h1>WINTER SALE</h1>
-            <p>40% LOWER PRICES. CHECK OUR SPECIAL OFFER</p>
-            <button>SHOW MORE</button>
-          </div>
-        </div>
+      <Wrapper slideIndex={slideIndex}>
+        {sliderItems.map((item) => (
+          <Slide 
+            key={item.id} 
+            img={item.img} 
+            title={item.title} 
+            desc={item.desc}/>
+        ))}
+      </Wrapper>
 
-        <div className={styles.slide}>
-          <div className={styles.container_img}>
-            <img className={styles.img} src="https://ridestore.imgix.net/catalog/product/f0809_women_1_ZY9dL95.jpg" alt="hats"></img>
-          </div>
-          <div className={styles.container_info}>
-            <h1>WINTER HATS</h1>
-            <p>40% LOWER PRICES. CHECK OUR SPECIAL OFFER</p>
-            <button>SHOW MORE</button>
-          </div>
-        </div>
-
-        <div className={styles.slide}>
-          <div className={styles.container_img}>
-            <img className={styles.img} src="https://www.ridestore.com/images/H1657_01_D0KDPCe.jpg" alt="equipment"></img>
-          </div>
-          <div className={styles.container_info}>
-            <h1>SKIING EQUIPMENT</h1>
-            <p>40% LOWER PRICES. CHECK OUR SPECIAL OFFER</p>
-            <button>SHOW MORE</button>
-          </div>
-        </div>
-
-      </div>
-
-      <div className={styles.arrow_right}>
+      <div className={styles.arrow_right} onClick={() => handleClick("right")}>
         <ArrowRightOutlined />
       </div>
 

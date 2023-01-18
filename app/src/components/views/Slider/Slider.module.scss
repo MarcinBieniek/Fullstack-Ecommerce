@@ -22,6 +22,7 @@
     left: 10px;
     cursor: pointer;
     opacity: 0.5;
+    z-index: 2;
   }
 
   .arrow_right {
@@ -41,50 +42,4 @@
     opacity: 0.5;
   }
 
-  .wrapper {
-    height: 100%;
-    display: flex;
-
-    .slide {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      background-color: #f2f4f5;
-    }
-
-    .container_img {
-      height: 100%;
-      width: 100vh;
-      flex: 1;
-
-      .img {
-        height: 100%; 
-        margin-left: 100px;
-      }
-    }
-
-    .container_info {
-      flex: 1;
-      padding: 50px;
-
-      h1 {
-        font-size: 70px;
-      }
-
-      p {
-        margin: 30px 0px;
-        font-size: 20px;
-        font-weight: 500;
-        letter-spacing: 3px;
-      }
-
-      button {
-        padding: 10px;
-        font-size: 20px;
-        background-color: transparent;
-        cursor: pointer ;
-      }
-    }
-  }
 }
