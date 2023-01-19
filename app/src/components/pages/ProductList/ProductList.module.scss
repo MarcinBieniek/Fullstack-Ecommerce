@@ -1,0 +1,29 @@
+@import "../../../styles/settings.scss";
+
+.container {
+
+  .title{
+    margin: 20px;
+
+  }
+
+  .filter_container {
+    display: flex;
+    justify-content: space-between;
+
+    .filter {
+      margin: 20px;
+
+      .filter_text {
+        font-style: 20px;
+        font-weight: 600;
+        margin-right: 20px;
+      }
+      
+      .select {
+        padding: 10px;
+        margin-right: 20px;
+      }
+    }
+  }
+}
