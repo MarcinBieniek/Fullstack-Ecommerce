@@ -39,3 +39,38 @@ export const categories = [
     title: "RUNNING",
   },
 ]
+
+export const popularProducts = [
+  {
+    id: 1,
+    img: "https://8a.pl/media/catalog/product/cache/1433055b8f8c4027064fc3d2af12358a/A/r/Arcteryx_Vertex_U_black_942_475a.webp",
+  },
+  {
+    id: 2,
+    img: "https://8a.pl/media/catalog/product/cache/1433055b8f8c4027064fc3d2af12358a/A/r/Arcteryx_Vertex_U_black_942_475a.webp",
+  },
+  {
+    id: 3,
+    img: "https://8a.pl/media/catalog/product/cache/1433055b8f8c4027064fc3d2af12358a/A/r/Arcteryx_Vertex_U_black_942_475a.webp",
+  },
+  {
+    id: 4,
+    img: "https://8a.pl/media/catalog/product/cache/1433055b8f8c4027064fc3d2af12358a/A/r/Arcteryx_Vertex_U_black_942_475a.webp",
+  },
+  {
+    id: 5,
+    img: "https://8a.pl/media/catalog/product/cache/1433055b8f8c4027064fc3d2af12358a/A/r/Arcteryx_Vertex_U_black_942_475a.webp",
+  },
+  {
+    id: 6,
+    img: "https://8a.pl/media/catalog/product/cache/1433055b8f8c4027064fc3d2af12358a/A/r/Arcteryx_Vertex_U_black_942_475a.webp",
+  },
+  {
+    id: 7,
+    img: "https://8a.pl/media/catalog/product/cache/1433055b8f8c4027064fc3d2af12358a/A/r/Arcteryx_Vertex_U_black_942_475a.webp",
+  },
+  {
+    id: 8,
+    img: "https://8a.pl/media/catalog/product/cache/1433055b8f8c4027064fc3d2af12358a/A/r/Arcteryx_Vertex_U_black_942_475a.webp",
+  },
+]
