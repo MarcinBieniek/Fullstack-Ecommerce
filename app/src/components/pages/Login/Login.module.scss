@@ -1,0 +1,57 @@
+@import "../../../styles/settings.scss";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: 
+    linear-gradient(
+        rgba(255, 255, 255, 0.5), 
+        rgba(255, 255, 255, 0.5)
+    ),
+    url("https://cdn.pixabay.com/photo/2016/11/22/19/25/adventure-1850178_960_720.jpg") center; 
+    background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .wrapper { 
+    width: 25%;
+    padding: 20px;
+    background-color: white;
+
+    .title {
+      font-size: 24px;
+      font-weight: 300;
+    } 
+  
+    .form {
+      display: flex;
+      flex-direction: column;
+
+      .form_input {
+        flex: 1;
+        min-width: 40%;
+        margin: 10px 0px;
+        padding: 10px;
+      }
+
+      .login_button {
+        width: 40%;
+        border: none;
+        padding: 15px 20px;
+        background-color: teal;
+        color: white;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+
+      .link {
+        margin: 5px 0px;
+        font-size: 12px;
+        text-decoration: underline;
+        cursor: pointer;
+        color: black;
+      }
+    }
+  }
+}
