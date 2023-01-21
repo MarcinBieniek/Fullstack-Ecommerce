@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className={styles.left}>
           <span className={styles.language}>EN</span>
           <div className={styles.container_search}>
-            <input className={styles.input_search}></input>
+            <input className={styles.input_search} placeholder="Search"></input>
             <Search className={styles.icon_search} />
           </div>
         </div>

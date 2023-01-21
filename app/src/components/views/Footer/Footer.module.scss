@@ -9,9 +9,6 @@
     flex-direction: column;
     padding: 20px;
 
-    .logo {
-    }
-
     .desc {
       margin: 20px 0px;
     }
@@ -79,4 +76,24 @@
       width: 50%;
     }
   } 
+}
+
+/* Media queries */
+
+$mobile: 380px;
+
+@media (max-width: $mobile) {
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  
+    .center{
+      display: none;
+    }
+  
+    .right{
+      background-color: #fff8f8;
+    } 
+  }
 }

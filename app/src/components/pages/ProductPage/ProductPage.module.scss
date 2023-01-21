@@ -113,3 +113,38 @@
     }
   }
 }
+
+/* Media queries */
+
+$mobile: 380px;
+
+@media (max-width: $mobile) {
+
+  .container {
+
+    .wrapper {
+      padding: 10px;
+      flex-direction: column;
+  
+      .image_container {
+  
+        .image {
+          height: 50vh;
+        }
+      }
+  
+      .info_container {
+        padding: 10px;
+
+        .filter_container {
+          width: 100%;
+        }
+  
+        .add_container {
+          width: 100%;
+
+          }
+        }
+      }
+    }
+  }

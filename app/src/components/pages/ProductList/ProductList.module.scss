@@ -27,3 +27,37 @@
     }
   }
 }
+
+/* Media queries */
+
+$mobile: 380px;
+
+@media (max-width: $mobile) {
+
+  .container {
+
+    .title{
+      margin: 20px;
+    }
+  
+    .filter_container {
+      display: flex;
+      justify-content: space-between;
+  
+      .filter {
+        width: 0px 20px;
+        display: flex;
+        flex-direction: column;
+  
+        .filter_text {
+          margin-right: 20px;
+        }
+        
+        .select {
+          padding: 10px;
+          margin: 5px 0px;
+        }
+      }
+    }
+  }
+}

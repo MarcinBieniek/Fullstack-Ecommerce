@@ -62,3 +62,52 @@
     }
   }
 }
+
+/* media queries */
+
+$mobile: 380px;
+
+@media (max-width: $mobile) {
+  
+  .container {
+    height: 50px;
+  
+    .wrapper {
+      padding: 10px 0px;
+  
+      .left {
+  
+        .language {
+          display: none;
+        }
+  
+        .container_search {
+          margin-left: 10px;
+  
+          .input_search{
+            width: 50px;
+          }
+        }
+      }
+  
+      .center {  
+        .logo {
+          font-size: 24px;
+          margin-left: 5px;
+        }
+      }
+
+      .right {
+        justify-content: center;
+        flex: 2;
+  
+        .menu_item {
+          font-size: 12px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+
+}

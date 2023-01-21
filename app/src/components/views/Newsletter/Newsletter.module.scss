@@ -41,3 +41,27 @@
     }
   }
 }
+
+/* Media queries */
+
+$mobile: 380px;
+
+@media (max-width: $mobile) {
+
+  .container {
+    height: 30vh;    
+
+    .title {
+      font-size: 40px;
+    }
+
+    .description {
+      text-align: center;
+      font-size: 16px;
+    }
+  
+    .container_input {
+      width: 80%;
+    }
+  }
+}

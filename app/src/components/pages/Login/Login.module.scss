@@ -55,3 +55,18 @@
     }
   }
 }
+
+/* Media queries */
+
+$mobile: 380px;
+
+@media (max-width: $mobile) {
+
+  .container {
+  
+    .wrapper { 
+      width: 75%;
+
+    }
+  }
+}
