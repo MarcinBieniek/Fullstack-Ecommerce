@@ -14,6 +14,7 @@ const verifyToken = (req, res, next) => {
     }
 };
 
+//User can add/edit own things
 const verifyTokenAndAuthorization = (req, res, next)=>{
     verifyToken(req, res, () => {
         if(req.user.id === req.params.id || req.user.isAdmin) {
@@ -34,4 +35,4 @@ const verifyTokenAndAdmin = (req, res, next)=>{
     });
 }
 
-module.exports = { verifyTokenAndAuthorization, verifyTokenAndAdmin };
+module.exports = { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin };
