@@ -7,6 +7,7 @@ import React from 'react'
 const FeaturedInfo = () => {
   return (
     <div className={styles.container}>
+      
       <div className={styles.featured_item}>
         <span className={styles.featured_title}>Revanue</span>
         <div className={styles.featured_money_container}>
