@@ -5,7 +5,7 @@ const WidgetLarge = () => {
 
   const Button = ({ type }) => {
 
-
+    // WIP - button colors / p 3 1:16:02
 
     return <button className={styles.button}>{type}</button>
   }

@@ -3,16 +3,26 @@ import './styles/global.scss';
 import styles from './App.module.scss'
 import Sidebar from './components/views/Sidebar/Sidebar';
 import Home from './components/pages/Home/Home';
+import UserList from './components/pages/UserList/UserList';
+import User from './components/pages/User/User';
 
-function App() {
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+const App = () => {
   return (
-    <div className="App">
-      <Topbar />
-      <div className={styles.container}>
-        <Sidebar />
-        <Home />
-      </div>
-    </div>
+      <BrowserRouter>
+          <div className="App">
+            <Topbar />
+            <div className={styles.container}>
+              <Sidebar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/users" element={<UserList />} />
+                <Route path="/user/:userId" element={<User />} />
+              </Routes>
+            </div>
+          </div>
+      </BrowserRouter>
   );
 }
 
