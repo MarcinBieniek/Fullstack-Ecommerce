@@ -2,4 +2,9 @@
 
 .container {
   flex: 4;
+
+  .home_widgets {
+    display: flex;
+    margin: 20px;
+  }
 }
