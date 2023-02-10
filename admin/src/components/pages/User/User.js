@@ -1,4 +1,5 @@
-import styles from './User.module.scss'
+import styles from './User.module.scss';
+import { Link } from 'react-router-dom';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
@@ -12,7 +13,9 @@ const User = () => {
       
       <div className={styles.title_container}>
         <h1 className={styles.title}>Edit User</h1>
-        <button className={styles.addUser_button}>Create</button>
+        <Link to="/new-user">
+          <button className={styles.addUser_button}>Create</button>
+        </Link>
       </div>
       
       <div className={styles.user_container}>
@@ -114,7 +117,7 @@ const User = () => {
                 <input type="file" id="file" className={styles.user_update_input}></input>
               </div>    
               <button className={styles.user_update_button}>Update</button>
-            </div> 
+            </div>  
           </form>
         </div>
       </div>

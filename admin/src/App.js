@@ -7,6 +7,7 @@ import UserList from './components/pages/UserList/UserList';
 import User from './components/pages/User/User';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AddUser from './components/pages/AddUser/AddUser';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/users" element={<UserList />} />
                 <Route path="/user/:userId" element={<User />} />
+                <Route path="/new-user" element={<AddUser />} />
               </Routes>
             </div>
           </div>
