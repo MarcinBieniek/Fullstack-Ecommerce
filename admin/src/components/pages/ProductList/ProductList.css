@@ -1,15 +1,15 @@
 @import "../../../styles/settings.scss";
 
-.userList_container {
+.container {
   flex: 4;
 }
 
-.productList_product {
+.userList_user {
   display: flex;
   align-items: center;
 }
 
-.productList_img {
+.userList_img {
   width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -17,7 +17,7 @@
   margin-right: 10px;
 }
 
-.productList_edit {
+.userList_edit {
   border: none;
   border-radius: 10px;
   padding: 5px 10px;
@@ -27,7 +27,7 @@
   margin-right: 20px;
 }
 
-.productList_delete {
+.userList_delete {
   color: red;
   cursor: pointer;
 }

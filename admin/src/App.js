@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Topbar from './components/views/Topbar/Topbar';
 import './styles/global.scss';
 import styles from './App.module.scss'
@@ -6,11 +7,11 @@ import Home from './components/pages/Home/Home';
 import UserList from './components/pages/UserList/UserList';
 import User from './components/pages/User/User';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AddUser from './components/pages/AddUser/AddUser';
+import ProductList from './components/pages/ProductList/ProductList';
 
 const App = () => {
-  return (
+  return ( 
       <BrowserRouter>
           <div className="App">
             <Topbar />
@@ -21,6 +22,9 @@ const App = () => {
                 <Route path="/users" element={<UserList />} />
                 <Route path="/user/:userId" element={<User />} />
                 <Route path="/new-user" element={<AddUser />} />
+                <Route path="/products" element={<ProductList />} />
+                <Route path="/product/:productId" element={<User />} />
+                <Route path="/new-product" element={<AddUser />} />
               </Routes>
             </div>
           </div>
