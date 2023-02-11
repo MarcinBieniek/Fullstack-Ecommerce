@@ -21,10 +21,12 @@ const Sidebar = () => {
         <div className={styles.menu}>
           <h3 className={styles.menu_title}>Dashboard</h3>
           <ul className={styles.sidebar_list}>
-            <li className={styles.sidebar_listitem}>
-              <LineStyleIcon className={styles.sidebar_icon}/>
-              Home
-            </li>
+            <Link to="/">
+              <li className={styles.sidebar_listitem}>
+                <LineStyleIcon className={styles.sidebar_icon}/>
+                Home
+              </li>
+            </Link>
             <li className={styles.sidebar_listitem}>
               <TimelineIcon className={styles.sidebar_icon}/>
               Analitics

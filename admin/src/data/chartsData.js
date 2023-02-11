@@ -47,4 +47,19 @@ export const userData = [
         name: "Dec",
         "Active User": 4000
     },
-  ];
+];
+
+export const productData = [
+    {
+        name: "Jan",
+        "Sales": 2700
+    },
+    {
+        name: "Feb",
+        "Sales": 4000
+    },
+    {
+        name: "Mar",
+        "Sales": 4000
+    }
+];

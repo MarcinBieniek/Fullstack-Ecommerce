@@ -25,7 +25,7 @@ const ProductList = () => {
           <div className="productList_product">
             <img className="productList_img" src={params.row.img} alt="" />
             {params.row.name}  
-          </div>
+          </div> 
         )
     }},
     { field: 'stock', headerName: 'Stock', width: 200 },
