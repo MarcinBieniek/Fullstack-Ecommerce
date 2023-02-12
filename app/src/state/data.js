@@ -27,16 +27,19 @@ export const categories = [
     id: 1,
     img: "https://cdn.pixabay.com/photo/2016/11/22/19/25/adventure-1850178_960_720.jpg",
     title: "EASY TREKKING",
+    cat: "women"
   },
   {
     id: 2, 
     img: "https://cdn.pixabay.com/photo/2016/11/18/15/40/boy-1835416_960_720.jpg",
     title: "SKIING",
+    cat: "men"
   },
   {
     id: 3,
     img: "https://cdn.pixabay.com/photo/2017/08/06/12/52/woman-2592247_960_720.jpg",
     title: "RUNNING",
+    cat: "shoes"
   },
 ]
 
