@@ -30,7 +30,7 @@ const Sidebar = () => {
             <li className={styles.sidebar_listitem}>
               <TimelineIcon className={styles.sidebar_icon}/>
               Analitics
-            </li>
+            </li> 
             <li className={styles.sidebar_listitem}>
               <TrendingUpIcon className={styles.sidebar_icon}/>
               Sales
