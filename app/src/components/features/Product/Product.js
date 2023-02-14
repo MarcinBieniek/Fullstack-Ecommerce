@@ -1,5 +1,6 @@
 import styles from './Product.module.scss'
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@material-ui/icons'
+import { Link } from 'react-router-dom'
 
 const Product = ({ item }) => {
 
@@ -11,7 +12,9 @@ const Product = ({ item }) => {
           <ShoppingCartOutlined />
         </div>
         <div className={styles.icons}>
-          <SearchOutlined />
+          <Link to={`/product/${item._id}`}>
+            <SearchOutlined />
+          </Link>
         </div>
         <div className={styles.icons}>
           <FavoriteBorderOutlined />

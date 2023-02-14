@@ -1,11 +1,43 @@
-import { Add, Remove } from '@material-ui/icons'
-import Annoucment from '../../views/Annoucment/Annoucment'
-import Footer from '../../views/Footer/Footer'
-import Navbar from '../../views/Navbar/Navbar'
-import Newsletter from '../../views/Newsletter/Newsletter'
-import styles from './ProductPage.module.scss'
+import { Add, Remove } from '@material-ui/icons';
+import Annoucment from '../../views/Annoucment/Annoucment';
+import Footer from '../../views/Footer/Footer';
+import Navbar from '../../views/Navbar/Navbar';
+import Newsletter from '../../views/Newsletter/Newsletter';
+import styles from './ProductPage.module.scss';
+import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { publicRequest } from './../../../middleware/requestMethods';
 
 const ProductPage = () => {
+
+  const location = useLocation(); 
+  const id = location.pathname.split("/")[2];
+
+  const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState('');
+  const [size, setSize] = useState('');
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get("/products/find/"+id)
+        setProduct(res.data);
+      } catch(err) {
+        console.log('fetch error is', err)
+      }
+    };
+    getProduct()
+  }, [id]);
+
+  const handleQuantity = (type) => {
+    if(type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1)
+    } else {
+      quantity < 10 && setQuantity(quantity + 1)
+    }
+  }
+
   return (
     <div className={styles.container}>
       <Navbar />
@@ -15,40 +47,44 @@ const ProductPage = () => {
         <div className={styles.image_container}>
           <img 
             className={styles.image} 
-            src="https://8a.pl/media/catalog/product/cache/1433055b8f8c4027064fc3d2af12358a/A/r/Arcteryx_Vertex_U_black_942_475a.webp" 
+            src={product.img} 
           />
         </div>
 
         <div className={styles.info_container}>
-          <h1 className={styles.title}>Title</h1>
-          <p className={styles.desc}>Very good product with a lot of heandfull features. great color and shape. Best price in town.</p>
-          <span className={styles.price}>50$</span>
-          
+          <h1 className={styles.title}>{product.title}</h1>
+          <p className={styles.desc}>{product.desc}</p>
+          <span className={styles.price}>$ {product.price}</span>
           <div className={styles.filter_container}>
             <div className={styles.filter}>
               <span className={styles.filter_title}>Color</span>
-              <div className={styles.filter_color} ></div>
-              <div className={styles.filter_color} color="darkblue"></div>
-              <div className={styles.filter_color} color="gray"></div>
+
+                {product.color?.map((c) => (
+                  <div 
+                    key={c} 
+                    className={styles.filter_color}
+                    onClick={() => setColor(c)}
+                  >{c}</div>
+                ))};
+
             </div>
             <div className={styles.filter}>
               <span className={styles.filter_title}>Size</span>
-              <select className={styles.filter_size}>
-                <option className={styles.filter_size_option}>XS</option>
-                <option className={styles.filter_size_option}>S</option>
-                <option className={styles.filter_size_option}>M</option>
-                <option className={styles.filter_size_option}>L</option>
-                <option className={styles.filter_size_option}>X</option>
-                <option className={styles.filter_size_option}>XS</option>
+              <select className={styles.filter_size} onChange={(e) => setSize(e.target.value)}>
+
+                {product.size?.map((s) => (
+                  <option key={s} className={styles.filter_size_option}>{s}</option>
+                ))};
+
               </select>
             </div>
           </div>
 
           <div className={styles.add_container}>
             <div className={styles.amount_container}>
-              <Remove />
-              <span className={styles.amount}>1</span>
-              <Add />
+              <Remove onClick={()=>handleQuantity("dec")}/>
+              <span className={styles.amount}>{quantity}</span>
+              <Add onClick={()=>handleQuantity("inc")}/>
             </div>
             <button className={styles.add_button}>ADD TO CART</button>
           </div>

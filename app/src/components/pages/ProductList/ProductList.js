@@ -28,7 +28,7 @@ const ProductList = () => {
     <div className={styles.container}>
       <Annoucment />
       <Navbar />
-      <h1 className={styles.title}>Dresses</h1>
+      <h1 className={styles.title}>{ cat }</h1>
       <div className={styles.filter_container}>
         <div className={styles.filter}>
           <span className={styles.filter_text}>Filter products</span>

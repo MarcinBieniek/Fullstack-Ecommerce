@@ -8,8 +8,6 @@ const Products = ({ cat, filters, sort }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-  console.log('filtereproducts are', filteredProducts)
-
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -19,10 +17,6 @@ const Products = ({ cat, filters, sort }) => {
             : "http://localhost:8083/api/products"
         );
         setProducts(res.data)
-
-        console.log('cat is', cat)
-        console.log('resdata is', res.data)
-
       } catch(err) {
         console.log('error is', err)
       }
