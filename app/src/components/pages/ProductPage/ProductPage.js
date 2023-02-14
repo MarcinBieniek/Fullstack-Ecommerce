@@ -7,6 +7,8 @@ import styles from './ProductPage.module.scss';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { publicRequest } from './../../../middleware/requestMethods';
+import { addProduct } from '../../../redux/cartRedux';
+import { useDispatch } from 'react-redux';
 
 const ProductPage = () => {
 
@@ -17,6 +19,7 @@ const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState('');
   const [size, setSize] = useState('');
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -37,6 +40,16 @@ const ProductPage = () => {
       quantity < 10 && setQuantity(quantity + 1)
     }
   }
+
+  const handleClick = () => {
+    dispatch ( 
+      addProduct({ ...product, quantity, color, size })
+    )
+  }
+
+  console.log('color is', color)
+  console.log('size is', size)
+
 
   return (
     <div className={styles.container}>
@@ -86,7 +99,10 @@ const ProductPage = () => {
               <span className={styles.amount}>{quantity}</span>
               <Add onClick={()=>handleQuantity("inc")}/>
             </div>
-            <button className={styles.add_button}>ADD TO CART</button>
+            <button 
+              className={styles.add_button}
+              onClick={handleClick}
+            >ADD TO CART</button>
           </div>
 
         </div>
