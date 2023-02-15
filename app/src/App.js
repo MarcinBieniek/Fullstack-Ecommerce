@@ -8,6 +8,7 @@ import Login from './components/pages/Login/Login';
 import Cart from './components/pages/Cart/Cart';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Success from './components/pages/Success/Success';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />    
         <Route path="/register" element={<Register />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </BrowserRouter>
   ); 

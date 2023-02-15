@@ -4,10 +4,46 @@ import Footer from '../../views/Footer/Footer';
 import Navbar from '../../views/Navbar/Navbar';
 import styles from './Cart.module.scss';
 import { useSelector } from 'react-redux';
+import StripeCheckout from 'react-stripe-checkout';
+import { useEffect, useState } from 'react';
+import { userRequest } from '../../../middleware/requestMethods'
+import { useNavigate } from 'react-router';
+
+const KEY = process.env.REACT_APP_STRIPE;
 
 const Cart = () => {
 
-  const cart = useSelector(state=>state.cart)
+  const cart = useSelector(state=>state.cart);
+  const [stripeToken, setStripeToken] = useState(null);
+  const navigate = useNavigate();
+
+  const onToken = (token) => {
+    setStripeToken(token);
+  }  
+
+  console.log('key is', KEY)
+  console.log('stripeToken is', stripeToken)
+
+  useEffect(() => {
+    const makeRequest = async () => {
+      try {
+        const res = await userRequest.post("/checkout/payment",{
+          tokenId: stripeToken.id,
+          amount: 500,
+        });
+        navigate('/success', {
+          state: {
+            stripeData: res.data,
+            cartData: cart }
+        })
+          
+          console.log('res data is', res.data)
+      } catch(err) {
+        console.log('cart fetch error is', err)
+      }
+    };
+    stripeToken && makeRequest();
+  }, [stripeToken, cart.total, navigate])
 
   return (
     <div className={styles.container}>
@@ -76,7 +112,17 @@ const Cart = () => {
               <span className={styles.summary_item_text_total}>Total</span>
               <span className={styles.summary_item_price_total}>$ {cart.total}</span>
             </div>
-            <button className={styles.button}>Checkout now</button>
+            <StripeCheckout 
+              name="Runner."
+              billingAddress
+              shippingAddress 
+              description={`Your total is $${cart.total}`}
+              amount={cart.total*100}
+              token={onToken}
+              stripeKey={KEY}
+            >
+              <button className={styles.button}>Checkout now</button>
+            </StripeCheckout>
           </div>
         
         
