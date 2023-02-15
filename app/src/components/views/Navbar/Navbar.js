@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
+  const user = useSelector((state) => state.user.currentUser);
+
   const quantity = useSelector(state=>state.cart.quantity)
 
   return (
@@ -26,9 +28,16 @@ const Navbar = () => {
         </div>
         
         <div className={styles.right}>
-          <div className={styles.menu_item}>REGISTER</div>    
-          <div className={styles.menu_item}>SIGN IN</div>
-          
+
+          {!user ? 
+            <>
+              <div className={styles.menu_item}>REGISTER</div>    
+              <div className={styles.menu_item}>SIGN IN</div>
+            </>
+            :
+            <div className={styles.menu_item}>LOGOUT</div>
+          }
+
           <Link to="/cart">
             <div className={styles.menu_item}>
               <Badge badgeContent={quantity} color="primary">

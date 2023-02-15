@@ -43,6 +43,14 @@
         color: white;
         cursor: pointer;
         margin-bottom: 10px;
+        &:disabled {
+          background-color: grey;
+          cursor: not-allowed;
+        }
+      }
+
+      .wrong_message {
+        color: red;
       }
 
       .link {

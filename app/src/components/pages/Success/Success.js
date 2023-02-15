@@ -16,7 +16,9 @@ const Success = () => {
 
   - pojawil sie problem z fetch - problem lezy chyba w tym ze nie pobieram danych usera ktore wymaga route i model dla tego requestu - do sprawdzenia pozniej
 
-  -linki
+  - invalid token? - to moze byc to!
+
+  - linki
   
   */
 

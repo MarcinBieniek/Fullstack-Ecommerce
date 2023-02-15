@@ -6,6 +6,7 @@ import ProductPage from './components/pages/ProductPage/ProductPage';
 import Register from './components/pages/Register/Register';
 import Login from './components/pages/Login/Login';
 import Cart from './components/pages/Cart/Cart';
+import { useSelector } from 'react-redux';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Success from './components/pages/Success/Success';
@@ -19,6 +20,7 @@ function App() {
         <Route path="/products/:category" element={<ProductList />} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/login" element={<Login />} />    
         <Route path="/register" element={<Register />} />
         <Route path="/success" element={<Success />} />
