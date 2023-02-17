@@ -17,8 +17,6 @@ const App = () => {
 
   const admin = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser.isAdmin;
 
-  console.log('admin is', admin)
-
   return ( 
       <BrowserRouter>
           <div className="App">

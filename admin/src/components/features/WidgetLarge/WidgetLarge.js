@@ -7,8 +7,6 @@ const WidgetLarge = () => {
 
   const [orders, setOrders] = useState([])
 
-  console.log('orders are', orders)
-
   useEffect(() => {
     const getOrders = async () => {
       try {
@@ -41,15 +39,15 @@ const WidgetLarge = () => {
         </tr>
         
         {orders.map(order => (
-          <tr className={styles.table_row}>
-          <td className={styles.user}>
-            <span className={styles.name}>{order.userId}</span>
-          </td>
-          <td className={styles.date}>{format(order.createdAt)}</td>
-          <td className={styles.amount}>${order.amount}</td>
-          <td className={styles.status}>
-            <Button type={order.status}></Button>
-          </td>
+          <tr className={styles.table_row} key={order._id}>
+            <td className={styles.user}>
+              <span className={styles.name}>{order.userId}</span>
+            </td>
+            <td className={styles.date}>{format(order.createdAt)}</td>
+            <td className={styles.amount}>${order.amount}</td>
+            <td className={styles.status}>
+              <Button type={order.status}></Button>
+            </td>
           </tr>  
         ))}
             
