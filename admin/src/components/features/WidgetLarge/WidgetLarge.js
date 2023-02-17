@@ -1,7 +1,26 @@
 import styles from './WidgetLarge.module.scss';
-import clsx from 'clsx';
+import { useState, useEffect } from 'react';
+import { userRequest} from '../../../middleware/requestMethods';
+import { format } from 'timeago.js';
 
 const WidgetLarge = () => {
+
+  const [orders, setOrders] = useState([])
+
+  console.log('orders are', orders)
+
+  useEffect(() => {
+    const getOrders = async () => {
+      try {
+        const res = await userRequest.get("orders")
+        setOrders(res.data)
+      } catch(err) {
+        console.log('users fetch error is ', err)
+      }
+    };
+    getOrders()
+  }, [])
+
 
   const Button = ({ type }) => {
 
@@ -21,48 +40,19 @@ const WidgetLarge = () => {
           <th className={styles.table_header}>Status</th>
         </tr>
         
-        <tr className={styles.table_row}>
+        {orders.map(order => (
+          <tr className={styles.table_row}>
           <td className={styles.user}>
-            <img src="https://i.ibb.co/p03NDHK/elon-muskav.png" alt="User avatar" className={styles.avatar} />
-            <span className={styles.name}>Susan Carol</span>
+            <span className={styles.name}>{order.userId}</span>
           </td>
-          <td className={styles.date}>2 Febbruary 2023</td>
-          <td className={styles.amount}>$122.00</td>
+          <td className={styles.date}>{format(order.createdAt)}</td>
+          <td className={styles.amount}>${order.amount}</td>
           <td className={styles.status}>
-            <Button type="Approved"></Button>
+            <Button type={order.status}></Button>
           </td>
-        </tr>  
-
-        <tr className={styles.table_row}>
-          <td className={styles.user}>
-            <img src="https://i.ibb.co/p03NDHK/elon-muskav.png" alt="User avatar" className={styles.avatar} />
-            <span className={styles.name}>Susan Carol</span>
-          </td>
-          <td className={styles.date}>2 Febbruary 2023</td>
-          <td className={styles.amount}>$122.00</td>
-          <td className={styles.status}><Button type="Declined"></Button></td>
-        </tr>
-
-        <tr className={styles.table_row}>
-          <td className={styles.user}>
-            <img src="https://i.ibb.co/p03NDHK/elon-muskav.png" alt="User avatar" className={styles.avatar} />
-            <span className={styles.name}>Susan Carol</span>
-          </td>
-          <td className={styles.date}>2 Febbruary 2023</td>
-          <td className={styles.amount}>$122.00</td>
-          <td className={styles.status}><Button type="Approved"></Button></td>
-        </tr>
-
-        <tr className={styles.table_row}>
-          <td className={styles.user}>
-            <img src="https://i.ibb.co/p03NDHK/elon-muskav.png" alt="User avatar" className={styles.avatar} />
-            <span className={styles.name}>Susan Carol</span>
-          </td>
-          <td className={styles.date}>2 Febbruary 2023</td>
-          <td className={styles.amount}>$122.00</td>
-          <td className={styles.status}><Button type="Pending"></Button></td>
-        </tr>
-
+          </tr>  
+        ))}
+            
       </table>
     </div>
   )
