@@ -22,16 +22,13 @@ const FeaturedInfo = () => {
     getIncome();
   }, []);
 
-  console.log('perc', perc)
-  console.log('income', income[1].total)
-
   return (
     <div className={styles.container}>
       
       <div className={styles.featured_item}>
         <span className={styles.featured_title}>Revanue</span>
         <div className={styles.featured_money_container}>
-          <span className={styles.featured_money}>${income[1].total}</span>
+        <span className={styles.featured_money}>${income[1]?.total}</span>
           <span className={styles.featured_money_rate}>
             %{perc} 
             { perc < 0 
